@@ -3,6 +3,7 @@ package com.example.prikol.Controllers;
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.Unirest;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,7 @@ public class TelegramController {
 
     @RequestMapping("/")
     //@ResponseBody
-    public String index(String update) {
+    public String index(@RequestBody String update) {
         if(update == null)
             update= "Empty";
 
