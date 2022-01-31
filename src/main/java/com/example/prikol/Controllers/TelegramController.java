@@ -10,6 +10,4 @@ public class TelegramController {
     public String index() {
         return "Привет! Альбинка!";
     }
-
-
 }
