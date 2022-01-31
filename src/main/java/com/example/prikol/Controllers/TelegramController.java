@@ -14,16 +14,16 @@ public class TelegramController {
 
     @RequestMapping("/")
     //@ResponseBody
-    public String index(String message) {
-        if(message == null)
-            message= "Empty";
+    public String index(String update) {
+        if(update == null)
+            update= "Empty";
 
-        System.out.println(message);
+        System.out.println(update);
 
         var response = Unirest.post(telegramUrl + "/sendMessage")
                 .header("accept", "application/json")
                 .field("chat_id", "104830286")
-                .field("text", message)
+                .field("text", update)
                 .asJson();
 
         return response.getBody().toString();
