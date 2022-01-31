@@ -11,9 +11,5 @@ public class TelegramController {
         return "Привет! Альбинка!";
     }
 
-    @RequestMapping("/todo")
-    public String todo() {
-        return "todo text";
-    }
 
 }
