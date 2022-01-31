@@ -20,7 +20,7 @@ public class TelegramController {
         var response = Unirest.post(telegramUrl + "/sendMessage")
                 .header("accept", "application/json")
                 .field("chat_id", update.getMessage().getFrom().getId())
-                .field("text", "Привет, " + update.getMessage().getFrom().getFirstName())
+                .field("text", "Привет, " + update.getMessage().getFrom().getUsername())
                 .asJson();
 
         return update;

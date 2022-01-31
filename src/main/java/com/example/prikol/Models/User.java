@@ -17,6 +17,15 @@ public class User {
         this.id = id;
     }
 
+    private String username;
     private String firstName;
     private String id;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }
