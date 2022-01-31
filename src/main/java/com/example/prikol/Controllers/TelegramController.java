@@ -8,7 +8,7 @@ public class TelegramController {
 
     @RequestMapping("/")
     public String index() {
-        return "Привет!";
+        return "Привет! Вторая версия привета!";
     }
 
 }
