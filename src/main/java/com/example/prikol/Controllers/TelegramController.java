@@ -17,7 +17,7 @@ public class TelegramController {
 
     @RequestMapping("/")
     @ResponseBody
-    public Update index(@RequestBody String request) {
+    public String index(@RequestBody String request) {
         var update = BotUtils.parseUpdate(request);
 
         var response = Unirest.post(telegramUrl + "/sendMessage")
@@ -26,6 +26,6 @@ public class TelegramController {
                 .field("text", "Привет, " + update.message().from().username())
                 .asJson();
 
-        return update;
+        return BotUtils.toJson(update);
     }
 }
