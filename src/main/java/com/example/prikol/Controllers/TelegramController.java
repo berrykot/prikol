@@ -1,6 +1,8 @@
 package com.example.prikol.Controllers;
 
-import com.example.prikol.Models.*;
+//import com.example.prikol.Models.*;
+import com.pengrad.telegrambot.BotUtils;
+import com.pengrad.telegrambot.model.*;
 
 import kong.unirest.Unirest;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,12 +17,13 @@ public class TelegramController {
 
     @RequestMapping("/")
     @ResponseBody
-    public Update index(@RequestBody Update update) {
+    public Update index(@RequestBody String request) {
+        var update = BotUtils.parseUpdate(request);
 
         var response = Unirest.post(telegramUrl + "/sendMessage")
                 .header("accept", "application/json")
-                .field("chat_id", update.getMessage().getFrom().getId())
-                .field("text", "Привет, " + update.getMessage().getFrom().getUsername())
+                .field("chat_id", update.message().from().id())
+                .field("text", "Привет, " + update.message().from().username())
                 .asJson();
 
         return update;
